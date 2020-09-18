@@ -1,1 +1,10 @@
-<p>active-user works!</p>
+<h3> Active User(s) </h3>
+<div class="col-12 offset-1">
+    <ul class="list-group">
+        <ng-container *ngFor="let user of activeUsers">
+            <li class="list-group-item" *ngIf="user.active">
+                {{ user.name }} | Is Active : {{ user.active }} | <button class="btn btn-danger" (click)="setToInactive(user.name)"> Inactivate </button>
+            </li>
+        </ng-container>
+    </ul>
+</div>

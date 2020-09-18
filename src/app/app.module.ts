@@ -11,6 +11,7 @@ import { UserService } from './services/user.service'
 import { CounterService } from './services/counter.service';
 import { HeaderComponent } from './header/header/header.component';
 import { RemoveUserComponent } from './removeUserComponent/remove-user/remove-user.component';
+import { CounterComponent } from './counterComponent/counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { RemoveUserComponent } from './removeUserComponent/remove-user/remove-us
     AddUserComponent,
     SetStatusComponent,
     HeaderComponent,
-    RemoveUserComponent
+    RemoveUserComponent,
+    CounterComponent,
   ],
   imports: [
     BrowserModule,
