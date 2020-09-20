@@ -3,7 +3,11 @@
     <ul class="list-group">
         <ng-container *ngFor="let user of inactiveUsers">
             <li class="list-group-item" *ngIf="!user.active">
-                {{ user.name }} | Is Active : {{ user.active }} | <button class="btn btn-primary" (click)="setToActive(user.name)"> Activate </button>
+                <div class="row col-12" style='background-color: white; width: 30em'>
+                    <div class="col-4"> {{ user.name }} </div>
+                    <div class="col-4"> Is Active : {{ user.active }} </div>
+                    <div class="col-4"> <button class="btn btn-primary" (click)="setToActive(user.name)"> Active </button> </div>
+                </div>
             </li>
         </ng-container>
     </ul>

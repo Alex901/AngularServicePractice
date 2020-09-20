@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
+import { CounterService } from 'src/app/services/counter.service';
 
 @Component({
   selector: 'app-counter',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./counter.component.css']
 })
 export class CounterComponent implements OnInit {
+  constructor(private counterService : CounterService) { }
 
-  constructor() { }
+  usersCreated : number = this.counterService.counterCreated;
+  usersRemoved : number = this.counterService.counterRemoved;
+  usersActivated : number = this.counterService.counterToActive;
+  usersInactivated : number = this.counterService.counterToInactive;
 
   ngOnInit(): void {
   }

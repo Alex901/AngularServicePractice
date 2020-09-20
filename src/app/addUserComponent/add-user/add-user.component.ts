@@ -17,7 +17,7 @@ export class AddUserComponent implements OnInit {
   }
 
   createNewUser(){
-
+    console.log("new user:" + name + this.active)
   }
 
 }

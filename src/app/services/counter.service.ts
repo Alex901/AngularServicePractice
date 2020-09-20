@@ -4,26 +4,26 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class CounterService {
-  public counterCreated : number;
-  public counterRemoved : number;
-  public counterToInactive : number;
-  public counterToActice : number;
+  public counterCreated : number = 0;
+  public counterRemoved : number = 0;
+  public counterToInactive : number = 0;
+  public counterToActive : number = 0;
 
   constructor() { }
 
   incraseCreated(){
-    this.counterCreated++;
+    this.counterCreated += 1;
   }
 
   incraseRemoved(){
-    this.counterRemoved++;
+    this.counterRemoved += 1;
   }
 
   incraseToActive(){
-    this.counterToActice++;
+    this.counterToActive += 1;
   }
 
   incraseToInactive(){
-    this.counterToInactive++;
+    this.counterToInactive += 1;
   }
 }

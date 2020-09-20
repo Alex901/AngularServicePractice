@@ -29,10 +29,12 @@ export class UserService {
         if(u.active){
           u.active = false;
           this.counter.incraseToInactive();
+          console.log(this.counter.counterToInactive)
           this.statusChanged.emit("a status has changed");
         } else {
           u.active = true;
-          this.counter.incraseToActive();
+          this.counter.counterToActive += 1;
+          console.log(this.counter.counterToActive)
           this.statusChanged.emit("a status has changed");
         }
       }
