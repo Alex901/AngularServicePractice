@@ -9,7 +9,9 @@ export class CounterService {
   public counterToInactive : number = 0;
   public counterToActive : number = 0;
 
-  constructor() { }
+  constructor() {
+   
+   }
 
   incraseCreated(){
     this.counterCreated += 1;

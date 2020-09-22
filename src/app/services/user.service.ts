@@ -23,18 +23,22 @@ export class UserService {
     this.users.push(new User(name, status));
   }
 
+  deleteUser(index : number){ //I think this works, we'll see! 
+    this.users.slice(index,1);
+  }
+
   changeStatus(name : string){
     this.users.forEach(u => {
       if(u.name === name){
         if(u.active){
           u.active = false;
           this.counter.incraseToInactive();
-          console.log(this.counter.counterToInactive)
+         /*  console.log(this.counter.counterToInactive) */
           this.statusChanged.emit("a status has changed");
         } else {
           u.active = true;
-          this.counter.counterToActive += 1;
-          console.log(this.counter.counterToActive)
+          this.counter.incraseToActive();
+         /*  console.log(this.counter.counterToActive) */
           this.statusChanged.emit("a status has changed");
         }
       }

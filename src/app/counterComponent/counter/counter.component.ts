@@ -1,5 +1,6 @@
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { CounterService } from 'src/app/services/counter.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-counter',
@@ -15,6 +16,7 @@ export class CounterComponent implements OnInit {
   usersInactivated : number = this.counterService.counterToInactive;
 
   ngOnInit(): void {
+    console.log(this.usersCreated);
   }
 
 }
