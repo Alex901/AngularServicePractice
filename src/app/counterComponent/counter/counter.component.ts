@@ -28,6 +28,18 @@ export class CounterComponent implements OnInit {
          this.usersInactivated = newCount;
        }
      );
+
+     this.counterService.createdCountUpdater.subscribe(
+       (newCount : number) => {
+         this.usersCreated = newCount;
+       }
+     );
+
+     this.counterService.removeCountUpdated.subscribe(
+      (newCount : number) => {
+        this.usersRemoved = newCount;
+      }
+    );
   }
 
 

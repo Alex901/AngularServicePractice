@@ -23,11 +23,12 @@ export class CounterService {
    }
 
   incraseCreated(){
-    this.counterCreated += 1;
+    this.counterCreated++;
   }
 
   incraseRemoved(){
     this.counterRemoved++;
+    this.removeCountUpdated.emit(this.counterRemoved);
   }
 
   incraseToActive(){
@@ -38,5 +39,10 @@ export class CounterService {
   incraseToInactive(){
     this.counterToInactive++;
     this.inactiveCountUpdated.emit(this.counterToInactive);
+  }
+
+  incraseNewusers(){
+    this.counterCreated++;
+    this.createdCountUpdater.emit(this.counterCreated);
   }
 }

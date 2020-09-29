@@ -5,15 +5,15 @@
         <div class="col-6">
             <div class="form-group">
                 <label for="selectpicker"> Choose user to delete!</label>
-                <select class="selectpicker" data-size="5" value="user.name"> 
-                    <optgroup label="active"> </optgroup>
-                    <optgroup label="inactive"> </optgroup>
-                    <ng-container *ngFor="let user of users">
+                <select id="myDropdown" class="selectpicker myDropdown" data-size="5" [(ngModel)]="userToRemove" [ngModelOptions]="{standalone: true}">
+                   <!--  <optgroup label=" active "> </optgroup>
+                    <optgroup label="inactive "> </optgroup> maybe make this later-->
+                    <ng-container *ngFor="let user of users ">
                         <option> {{ user.name }} </option>
                     </ng-container>
                 </select>
             </div>
         </div>
-        <button type="submit" class="btn btn-danger float-right" (click)="removeUser()">Remove User</button>
+        <button type="submit " class="btn btn-danger float-right " (click)="removeUser() ">Remove User</button>
     </form>
 </div>

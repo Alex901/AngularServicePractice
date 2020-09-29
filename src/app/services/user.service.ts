@@ -5,9 +5,10 @@ import { CounterService } from './counter.service';
   providedIn: 'root'
 })
 export class UserService {
-  public users : User[] = [new User("Adamn", false), new User("Bertil", false),
+  public users : User[] = [new User("Adam", false), new User("Bertil", false),
   new User("Christian", true), new User("David", true)];
   statusChanged = new EventEmitter<string>();
+
 
   constructor(private counter : CounterService) { }
 
@@ -23,8 +24,15 @@ export class UserService {
     this.users.push(new User(name, status));
   }
 
-  deleteUser(index : number){ //I think this works, we'll see!
-    this.users.slice(index,1);
+  deleteUser(name : string){ //I think this works, we'll see!
+    this.users.forEach((u, i) => {
+      if(u.name == name){
+        this.users.splice(i, 1);
+        this.counter.incraseRemoved();
+      }
+    })
+
+  //this.users.slice(index,1);
   }
 
   changeStatus(name : string){
