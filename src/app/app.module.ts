@@ -12,6 +12,7 @@ import { CounterService } from './services/counter.service';
 import { HeaderComponent } from './header/header/header.component';
 import { RemoveUserComponent } from './removeUserComponent/remove-user/remove-user.component';
 import { CounterComponent } from './counterComponent/counter/counter.component';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,9 @@ import { CounterComponent } from './counterComponent/counter/counter.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [UserService, CounterService],
   bootstrap: [AppComponent]

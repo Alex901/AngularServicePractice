@@ -8,15 +8,28 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./counter.component.css']
 })
 export class CounterComponent implements OnInit {
-  constructor(private counterService : CounterService) { }
+  constructor(private counterService: CounterService) { }
 
-  usersCreated : number = this.counterService.counterCreated;
-  usersRemoved : number = this.counterService.counterRemoved;
-  usersActivated : number = this.counterService.counterToActive;
-  usersInactivated : number = this.counterService.counterToInactive;
+  usersCreated: number = 0;
+  usersRemoved: number = 0;
+  usersActivated: number = 0;
+  usersInactivated: number = 0;
+
 
   ngOnInit(): void {
     console.log(this.usersCreated);
+    this.counterService.activeCountUpdated.subscribe(
+      (newCount: number) => {
+        this.usersActivated = newCount;
+      }
+    );
+     this.counterService.inactiveCountUpdated.subscribe(
+       (newCount : number) => {
+         this.usersInactivated = newCount;
+       }
+     );
   }
+
+
 
 }

@@ -23,7 +23,7 @@ export class UserService {
     this.users.push(new User(name, status));
   }
 
-  deleteUser(index : number){ //I think this works, we'll see! 
+  deleteUser(index : number){ //I think this works, we'll see!
     this.users.slice(index,1);
   }
 

@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +9,17 @@ export class CounterService {
   public counterToInactive : number = 0;
   public counterToActive : number = 0;
 
+  activeCountUpdated = new EventEmitter<number>();
+  inactiveCountUpdated = new EventEmitter<number>();
+  removeCountUpdated = new EventEmitter<number>();
+  createdCountUpdater = new EventEmitter<number>();
+
   constructor() {
-   
+
+   }
+
+   getToActive(){
+     return this.counterToActive;
    }
 
   incraseCreated(){
@@ -18,14 +27,16 @@ export class CounterService {
   }
 
   incraseRemoved(){
-    this.counterRemoved += 1;
+    this.counterRemoved++;
   }
 
   incraseToActive(){
-    this.counterToActive += 1;
+    this.counterToActive++;
+    this.activeCountUpdated.emit(this.counterToActive);
   }
 
   incraseToInactive(){
-    this.counterToInactive += 1;
+    this.counterToInactive++;
+    this.inactiveCountUpdated.emit(this.counterToInactive);
   }
 }
